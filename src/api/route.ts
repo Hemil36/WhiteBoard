@@ -7,7 +7,7 @@ async function PO (room){
     
 
 
-    var response = await axios.post("http://localhost:3001/auth",{
+    var response = await axios.post("https://backend-ecru-iota.vercel.app/auth",{
         // user : useAuth(),
         room
     },{

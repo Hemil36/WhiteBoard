@@ -13,7 +13,7 @@ const Page = () => {
   const {user} = useUser();
   useEffect(() => {
 
-    const response  =  axios.post('http://localhost:3001/user',{
+    const response  =  axios.post('https://backend-ecru-iota.vercel.app/user',{
       orgId :   organization?.id || " ",
         user: user
           

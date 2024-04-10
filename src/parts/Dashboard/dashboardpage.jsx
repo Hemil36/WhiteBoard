@@ -26,6 +26,13 @@ useEffect(() => {
   console.log(parsed)
 }, [params])
 
+if(parsed?.
+  __clerk_db_jwt){
+    parsed = null;
+    parsed = {
+
+    };
+  }
   
   return (
     <div className=' h-screen p-5'>

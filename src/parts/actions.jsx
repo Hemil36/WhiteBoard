@@ -18,6 +18,7 @@ import { api } from "../../convex/_generated/api";
 import { ConfirmModal } from "./confirm-modal";
 import { RenameModal } from "./modals/rename-modal";
 import {useRenameModal} from "../store/use-rename-modal"
+import { useNavigate } from 'react-router-dom';
 
 const Actions = ({
   children,
@@ -36,10 +37,13 @@ const Actions = ({
   };
 
   const delete1 = useMutation(api.board.delete1);
-
+  const navigate = useNavigate();
   const onDelete = () => {
     delete1({ id })
-      .then(() => toast.success("Board deleted"))
+      .then(() => {toast.success("Board deleted")
+    
+      navigate("/");
+    })
       .catch(() => toast.error("Failed to delete board"));
   };
 

@@ -431,6 +431,8 @@ const deleteLayers = useDeleteLayers();
         canUndo={canUndo}
         undo={history.undo}
         redo={history.redo}
+        setLastUsedColor={setLastUsedColor}
+        
       />
       <SelectionTools camera={camera} setLastUsedColor={setLastUsedColor} />
       <svg

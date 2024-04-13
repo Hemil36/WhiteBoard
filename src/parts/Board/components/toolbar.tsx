@@ -11,7 +11,8 @@ import {
   
   import React from "react";
   import { ToolButton } from "./tool-button";
-import { CanvasMode, CanvasState , LayerType } from "@/types/canvas";
+import { CanvasMode, CanvasState , Color, LayerType } from "@/types/canvas";
+import { ToolButton1 } from "./tool-button1";
   
   interface ToolbarProps {
     canvasState: CanvasState;
@@ -20,6 +21,8 @@ import { CanvasMode, CanvasState , LayerType } from "@/types/canvas";
     redo: () => void;
     canUndo: boolean;
     canRedo: boolean;
+    setLastUsedColor: (color: Color) => void;
+
   };
   
   export const Toolbar = ({
@@ -29,6 +32,7 @@ import { CanvasMode, CanvasState , LayerType } from "@/types/canvas";
     redo,
     canUndo,
     canRedo,
+    setLastUsedColor
   }: ToolbarProps) => {
     return (
       <div className="absolute top-[50%] -translate-y-[50%] left-2 flex flex-col gap-y-4">
@@ -96,7 +100,7 @@ import { CanvasMode, CanvasState , LayerType } from "@/types/canvas";
             canvasState.layerType === LayerType.Ellipse
           }
         />
-        <ToolButton
+        <ToolButton1
           label="Pen"
           icon={Pencil}
           onClick={() => setCanvasState({
@@ -105,6 +109,10 @@ import { CanvasMode, CanvasState , LayerType } from "@/types/canvas";
           isActive={
             canvasState.mode === CanvasMode.Pencil
           }
+          mode={canvasState.mode}
+          setLastUsedColor={setLastUsedColor}
+        
+         
         />
       </div>
       <div className="bg-white rounded-md p-1.5 flex flex-col items-center shadow-md">
